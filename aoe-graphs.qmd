@@ -1,0 +1,137 @@
+---
+title: "An Investigation of the Annals of Eugenics (1925-1953)"
+author: "Ashley Russell"
+description: "Exploring trends and patterns in the Annals of Eugenics."
+date: 11/3/2025
+date-modified: 11/3/2025
+date-format: long
+#image: spending-habits-analysis_files/figure-html/predicted-prob-plot-1.png
+categories:
+  - Python 
+  - Exploratory Data Analysis
+  - Data Visualization
+  - Matplotlib
+format:
+  html:
+    code-overflow: wrap
+    toc: true
+    number-sections: true
+#theme: flatly
+editor: visual
+page-layout: full
+---
+
+# Immediate To-Do:
+
+-   [x] Do a test run to make sure plans are feasible.
+
+-   [ ] Finish the spreadsheet!
+
+-   [ ] Normalize author names (e.g. figure out how to handle "Mary N. Karn" and "M. N. Karn").
+
+-   [ ] Remove as many filler words as possible before creating word cloud.
+
+-   [ ] Note any particularly interesting titles.
+
+-   [ ] Write thoughts, analysis, takeaways, reflection.
+
+# Introduction
+
+These are graphs exploring the Annals of Eugenics and its articles, namely:
+
+-   How many articles were published each year;
+
+-   Most frequent key words in article titles;
+
+-   Most published authors in the journal.
+
+## Rationale
+
+This is part of a larger project about the history of Eugenics at my college (The College of Idaho), in my state (Idaho), and in academia as a whole. Exploring the *Annals of Eugenics* was a way to see the type of work that was being published during its tenure (at least before it was renamed to the *Annals of Human Genetics* in 1954*).*
+
+## About the Data
+
+This dataset is self made! I made a spreadsheet keeping track of the titles and authors of articles across years, volumes, and issues.
+
+# Data Wrangling
+
+```{python import-packages}
+#| code-fold: true
+#| code-summary: "Packages Used (expand to view code)"
+
+import pandas as pd
+import matplotlib.pyplot as plt
+from wordcloud import WordCloud
+```
+
+```{python load-data}
+#| code-fold: true
+#| code-summary: "Importing Dataset (expand to view code)"
+
+df = pd.read_csv("data/annals-of-eugenics-v1.csv")
+```
+
+```{python preview-data}
+#| code-fold: show
+#| code-summary: "Preview (expand to view code)"
+
+from tabulate import tabulate
+
+print(tabulate(df.head(), headers='keys', tablefmt='github'))
+```
+
+# Data Visualization
+
+```{python}
+#| code-fold: true
+#| code-summary: "Number of Papers Per Year Graph (expand to view code)"
+
+counts = df['Year'].value_counts().sort_index()
+
+plt.figure(figsize=(10,5))
+plt.plot(counts.index, counts.values, marker='o')
+plt.title("Number of Publications per Year in Annals of Eugenics")
+plt.xlabel("Year")
+plt.ylabel("Number of Publications")
+plt.grid(True)
+plt.show()
+```
+
+```{python}
+#| code-fold: true
+#| code-summary: "Word Cloud (expand to view code)"
+
+text = " ".join(df['Title'].dropna())
+
+
+wc = WordCloud(width=1000, height=500,
+               background_color='white',
+               stopwords={'the', 'of', 'and', 'on', 'in'}).generate(text)
+
+
+plt.figure(figsize=(12,6))
+plt.imshow(wc, interpolation='bilinear')
+plt.axis('off')
+plt.title("Most Frequent Words in Article Titles")
+plt.show()
+```
+
+```{python}
+#| code-fold: true
+#| code-summary: "Most Frequent Authors Graph (expand to view code)"
+
+authors = df['Author(s)'].dropna().str.split(';', expand=True).stack()
+authors.value_counts().head(10).plot(kind='barh')
+plt.title("Most Frequent Authors")
+plt.show()
+```
+
+# Final Thoughts
+
+## Limitations
+
+Making the spreadsheet took a minute, but that's what happens when you make your own dataset. It probably would have been easier to scrape the data, but that felt like it would've taken more time to set up and figure out, and inserting all of this information in a spreadsheet was a decent way to pass time.
+
+## Reflection
+
+¯\\\_(ツ)\_/¯ TBD
