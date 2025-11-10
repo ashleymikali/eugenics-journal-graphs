@@ -182,7 +182,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="extracting-the-data" class="level1" data-number="3">
 <h1 data-number="3"><span class="header-section-number">3</span> Extracting the Data</h1>
-<p>See the Python script here:</p>
+<p><a href="https://github.com/ashleymikali/eugenics-journal-graphs/blob/main/article-gatherer.py">See the Python script here.</a></p>
 <p><img src="images/paste-1.png" class="img-fluid"></p>
 </section>
 <section id="transforming-the-data" class="level1" data-number="4">
@@ -191,7 +191,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="data-wrangling" class="level1" data-number="5">
 <h1 data-number="5"><span class="header-section-number">5</span> Data Wrangling</h1>
-<div id="5804cc69" class="cell" data-execution_count="1">
+<div id="40208242" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Packages Used (expand to view code)</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -199,13 +199,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> wordcloud <span class="im">import</span> WordCloud</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="8c2b3d91" class="cell" data-execution_count="2">
+<div id="b7da3533" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Importing Dataset (expand to view code)</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"data/annals-of-eugenics-v1.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="687c8272" class="cell" data-execution_count="3">
+<div id="29ca5cd8" class="cell" data-execution_count="3">
 <details open="" class="code-fold">
 <summary>Preview (expand to view code)</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tabulate <span class="im">import</span> tabulate</span>
@@ -227,7 +227,7 @@ Margaret Moul                   | nan            |          nan | *Considering p
 </section>
 <section id="data-visualization" class="level1" data-number="6">
 <h1 data-number="6"><span class="header-section-number">6</span> Data Visualization</h1>
-<div id="b056d690" class="cell" data-execution_count="4">
+<div id="7047b7fb" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Number of Papers Per Year Graph (expand to view code)</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>counts <span class="op">=</span> df[<span class="st">'Year'</span>].value_counts().sort_index()</span>
@@ -248,7 +248,7 @@ Margaret Moul                   | nan            |          nan | *Considering p
 </div>
 </div>
 </div>
-<div id="9ce4bd2a" class="cell" data-execution_count="5">
+<div id="18759eb5" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Word Cloud (expand to view code)</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>text <span class="op">=</span> <span class="st">" "</span>.join(df[<span class="st">'Title'</span>].dropna())</span>
@@ -273,7 +273,7 @@ Margaret Moul                   | nan            |          nan | *Considering p
 </div>
 </div>
 </div>
-<div id="2f796997" class="cell" data-execution_count="6">
+<div id="6f8158b5" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Most Frequent Authors Graph (expand to view code)</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>authors <span class="op">=</span> df[<span class="st">'Author(s)'</span>].dropna().<span class="bu">str</span>.split(<span class="st">';'</span>, expand<span class="op">=</span><span class="va">True</span>).stack()</span>

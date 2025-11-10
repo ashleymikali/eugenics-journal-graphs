@@ -59,7 +59,7 @@ I scraped the data directly from the journal online. :)
 
 # Extracting the Data
 
-See the Python script here:
+[See the Python script here.](https://github.com/ashleymikali/eugenics-journal-graphs/blob/main/article-gatherer.py)
 
 ![](images/paste-1.png)
 
