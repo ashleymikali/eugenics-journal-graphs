@@ -25,7 +25,9 @@ page-layout: full
 
 -   [x] Do a test run to make sure plans are feasible.
 
--   [ ] Finish the spreadsheet!
+-   [x] Finish the spreadsheet!
+
+-   [ ] Clean the spreadsheet
 
 -   [ ] Normalize author names (e.g. figure out how to handle "Mary N. Karn" and "M. N. Karn").
 
@@ -51,7 +53,19 @@ This is part of a larger project about the history of Eugenics at my college (Th
 
 ## About the Data
 
-This dataset is self made! I made a spreadsheet keeping track of the titles and authors of articles across years, volumes, and issues.
+~~This dataset is self made! I made a spreadsheet keeping track of the titles and authors of articles across years, volumes, and issues.~~
+
+I scraped the data directly from the journal online. :)
+
+# Extracting the Data
+
+See the Python script here:
+
+![](images/paste-1.png)
+
+# Transforming the Data
+
+TBD
 
 # Data Wrangling
 
@@ -130,7 +144,9 @@ plt.show()
 
 ## Limitations
 
-Making the spreadsheet took a minute, but that's what happens when you make your own dataset. It probably would have been easier to scrape the data, but that felt like it would've taken more time to set up and figure out, and inserting all of this information in a spreadsheet was a decent way to pass time.
+~~Making the spreadsheet took a minute, but that's what happens when you make your own dataset. It probably would have been easier to scrape the data, but that felt like it would've taken more time to set up and figure out, and inserting all of this information in a spreadsheet was a decent way to pass time.~~
+
+I scraped the data!!!! But this also means having to... clean it.
 
 ## Reflection
 

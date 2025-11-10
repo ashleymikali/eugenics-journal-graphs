@@ -88,12 +88,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#rationale" id="toc-rationale" class="nav-link" data-scroll-target="#rationale"><span class="header-section-number">2.1</span> Rationale</a></li>
   <li><a href="#about-the-data" id="toc-about-the-data" class="nav-link" data-scroll-target="#about-the-data"><span class="header-section-number">2.2</span> About the Data</a></li>
   </ul></li>
-  <li><a href="#data-wrangling" id="toc-data-wrangling" class="nav-link" data-scroll-target="#data-wrangling"><span class="header-section-number">3</span> Data Wrangling</a></li>
-  <li><a href="#data-visualization" id="toc-data-visualization" class="nav-link" data-scroll-target="#data-visualization"><span class="header-section-number">4</span> Data Visualization</a></li>
-  <li><a href="#final-thoughts" id="toc-final-thoughts" class="nav-link" data-scroll-target="#final-thoughts"><span class="header-section-number">5</span> Final Thoughts</a>
+  <li><a href="#extracting-the-data" id="toc-extracting-the-data" class="nav-link" data-scroll-target="#extracting-the-data"><span class="header-section-number">3</span> Extracting the Data</a></li>
+  <li><a href="#transforming-the-data" id="toc-transforming-the-data" class="nav-link" data-scroll-target="#transforming-the-data"><span class="header-section-number">4</span> Transforming the Data</a></li>
+  <li><a href="#data-wrangling" id="toc-data-wrangling" class="nav-link" data-scroll-target="#data-wrangling"><span class="header-section-number">5</span> Data Wrangling</a></li>
+  <li><a href="#data-visualization" id="toc-data-visualization" class="nav-link" data-scroll-target="#data-visualization"><span class="header-section-number">6</span> Data Visualization</a></li>
+  <li><a href="#final-thoughts" id="toc-final-thoughts" class="nav-link" data-scroll-target="#final-thoughts"><span class="header-section-number">7</span> Final Thoughts</a>
   <ul class="collapse">
-  <li><a href="#limitations" id="toc-limitations" class="nav-link" data-scroll-target="#limitations"><span class="header-section-number">5.1</span> Limitations</a></li>
-  <li><a href="#reflection" id="toc-reflection" class="nav-link" data-scroll-target="#reflection"><span class="header-section-number">5.2</span> Reflection</a></li>
+  <li><a href="#limitations" id="toc-limitations" class="nav-link" data-scroll-target="#limitations"><span class="header-section-number">7.1</span> Limitations</a></li>
+  <li><a href="#reflection" id="toc-reflection" class="nav-link" data-scroll-target="#reflection"><span class="header-section-number">7.2</span> Reflection</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -152,7 +154,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1 data-number="1"><span class="header-section-number">1</span> Immediate To-Do:</h1>
 <ul class="task-list">
 <li><p><label><input type="checkbox" checked="">Do a test run to make sure plans are feasible.</label></p></li>
-<li><p><label><input type="checkbox">Finish the spreadsheet!</label></p></li>
+<li><p><label><input type="checkbox" checked="">Finish the spreadsheet!</label></p></li>
+<li><p><label><input type="checkbox">Clean the spreadsheet</label></p></li>
 <li><p><label><input type="checkbox">Normalize author names (e.g.&nbsp;figure out how to handle “Mary N. Karn” and “M. N. Karn”).</label></p></li>
 <li><p><label><input type="checkbox">Remove as many filler words as possible before creating word cloud.</label></p></li>
 <li><p><label><input type="checkbox">Note any particularly interesting titles.</label></p></li>
@@ -173,12 +176,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="about-the-data" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="about-the-data"><span class="header-section-number">2.2</span> About the Data</h2>
-<p>This dataset is self made! I made a spreadsheet keeping track of the titles and authors of articles across years, volumes, and issues.</p>
+<p><del>This dataset is self made! I made a spreadsheet keeping track of the titles and authors of articles across years, volumes, and issues.</del></p>
+<p>I scraped the data directly from the journal online. :)</p>
 </section>
 </section>
-<section id="data-wrangling" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Data Wrangling</h1>
-<div id="80ba6f67" class="cell" data-execution_count="1">
+<section id="extracting-the-data" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Extracting the Data</h1>
+<p>See the Python script here:</p>
+<p><img src="images/paste-1.png" class="img-fluid"></p>
+</section>
+<section id="transforming-the-data" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Transforming the Data</h1>
+<p>TBD</p>
+</section>
+<section id="data-wrangling" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Data Wrangling</h1>
+<div id="5804cc69" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Packages Used (expand to view code)</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -186,13 +199,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> wordcloud <span class="im">import</span> WordCloud</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="d1d8752d" class="cell" data-execution_count="2">
+<div id="8c2b3d91" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Importing Dataset (expand to view code)</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"data/annals-of-eugenics-v1.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="37ff8820" class="cell" data-execution_count="3">
+<div id="687c8272" class="cell" data-execution_count="3">
 <details open="" class="code-fold">
 <summary>Preview (expand to view code)</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tabulate <span class="im">import</span> tabulate</span>
@@ -212,9 +225,9 @@ Margaret Moul                   | nan            |          nan | *Considering p
 </div>
 </div>
 </section>
-<section id="data-visualization" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> Data Visualization</h1>
-<div id="9279e093" class="cell" data-execution_count="4">
+<section id="data-visualization" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Data Visualization</h1>
+<div id="b056d690" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Number of Papers Per Year Graph (expand to view code)</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>counts <span class="op">=</span> df[<span class="st">'Year'</span>].value_counts().sort_index()</span>
@@ -235,7 +248,7 @@ Margaret Moul                   | nan            |          nan | *Considering p
 </div>
 </div>
 </div>
-<div id="310a8278" class="cell" data-execution_count="5">
+<div id="9ce4bd2a" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Word Cloud (expand to view code)</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>text <span class="op">=</span> <span class="st">" "</span>.join(df[<span class="st">'Title'</span>].dropna())</span>
@@ -260,7 +273,7 @@ Margaret Moul                   | nan            |          nan | *Considering p
 </div>
 </div>
 </div>
-<div id="7448c01c" class="cell" data-execution_count="6">
+<div id="2f796997" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Most Frequent Authors Graph (expand to view code)</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>authors <span class="op">=</span> df[<span class="st">'Author(s)'</span>].dropna().<span class="bu">str</span>.split(<span class="st">';'</span>, expand<span class="op">=</span><span class="va">True</span>).stack()</span>
@@ -277,14 +290,15 @@ Margaret Moul                   | nan            |          nan | *Considering p
 </div>
 </div>
 </section>
-<section id="final-thoughts" class="level1" data-number="5">
-<h1 data-number="5"><span class="header-section-number">5</span> Final Thoughts</h1>
-<section id="limitations" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="limitations"><span class="header-section-number">5.1</span> Limitations</h2>
-<p>Making the spreadsheet took a minute, but that’s what happens when you make your own dataset. It probably would have been easier to scrape the data, but that felt like it would’ve taken more time to set up and figure out, and inserting all of this information in a spreadsheet was a decent way to pass time.</p>
+<section id="final-thoughts" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Final Thoughts</h1>
+<section id="limitations" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="limitations"><span class="header-section-number">7.1</span> Limitations</h2>
+<p><del>Making the spreadsheet took a minute, but that’s what happens when you make your own dataset. It probably would have been easier to scrape the data, but that felt like it would’ve taken more time to set up and figure out, and inserting all of this information in a spreadsheet was a decent way to pass time.</del></p>
+<p>I scraped the data!!!! But this also means having to… clean it.</p>
 </section>
-<section id="reflection" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="reflection"><span class="header-section-number">5.2</span> Reflection</h2>
+<section id="reflection" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="reflection"><span class="header-section-number">7.2</span> Reflection</h2>
 <p>¯\_(ツ)_/¯ TBD</p>
 </section>
 </section>
